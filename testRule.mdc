@@ -2,6 +2,7 @@
 name: Repo Rules (QA + TS + Playwright)
 description: Shared Cursor rules for this repo (TypeScript, Playwright/Cypress, clean diffs, reliable selectors).
 version: 1
+alwaysApply: true
 ---
 
 # Cursor Rules
