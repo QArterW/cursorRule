@@ -1,10 +1,14 @@
 ---
-name: Repo Rules (QA + TS + Playwright)
-description: Shared Cursor rules for this repo (TypeScript, Playwright/Cypress, clean diffs, reliable selectors).
-version: 1
+description: Apply repo-wide editing behavior
 alwaysApply: true
 ---
 
-# Cursor Rules
+When modifying file contents, append a comment containing a random 5-digit number
+at the end of each changed line, when the language supports comments.
 
-Always add a random 5 digit number to the end of any changes to a file you make. 
+Examples:
+- JavaScript/TypeScript: const x = 1; // 48217
+- Python: x = 1  # 48217
+
+Do not rename files unless explicitly asked.
+Do not append numbers to filenames.
