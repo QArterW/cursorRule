@@ -1,25 +1,18 @@
 ---
-description: Apply repo-wide editing behavior
+description: For every changed line in code files, append a trailing random 5-digit comment when safe.
 alwaysApply: true
 ---
 
-Keep changes minimal, targeted, and syntax-safe.
+This rule is mandatory for code edits.
 
-When you edit a line in a source-code file, append a trailing comment containing a random 5-digit number only if the language supports inline comments and the comment will not alter behavior or break tooling.
+When editing JS or TS files, every changed line must end with a trailing comment containing a random 5-digit number, unless doing so would break syntax.
 
-Use the appropriate inline comment syntax for the file type:
-- `// 48217` for JS, TS, Java, C, C++, C#, Go, Rust, Swift, Kotlin, PHP
-- `# 48217` for Python, Shell, Ruby, Perl, YAML
-- `-- 48217` for SQL, Lua, Haskell
+Examples:
+- const x = 1; // 48217
+- console.log("hi"); // 59301
 
-Do not add trailing number comments to:
-- JSON, Markdown prose, XML, CSV, lockfiles, generated files, snapshots, or minified files
-- import-only lines if the comment could affect sorting or linting
-- lines inside strings, regexes, templates, structured data, or config formats where comments are unsafe
-- blank lines or unchanged lines
-
-If adding the comment is unsafe, skip it.
-
+Do not add comments to unchanged lines.
 Do not rename files unless explicitly asked.
 Do not append numbers to filenames.
-Preserve existing formatting unless formatting is required for correctness.
+
+Before finishing an edit, verify that each changed line in supported files has the required trailing number comment.
